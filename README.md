@@ -3,7 +3,7 @@ Consiste em ser uma plataforma voltada para os grupos de extensão do IME-USP. T
 
 ## Funcionalidades
 ### Ambientes:
--A plataforma permitirá que cada grupo de extensão no IME possua um ambiente próprio para organizar seus avisos(posts), eventos e projetos.
+-A plataforma permitirá que cada grupo de extensão no IME possua um ambiente próprio para organizar seus avisos(posts), eventos e projetos. < br/>
 -Cada usuário terá um cadastro na plataforma e consequentemente um perfil, podendo personaliza-lo.
 
 
