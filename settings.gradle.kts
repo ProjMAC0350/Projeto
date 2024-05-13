@@ -1,2 +1,1 @@
-rootProject.name = "Plataforma_Grupo_de_Extensao"
-
+rootProject.name = "dev.cirno.teste"
