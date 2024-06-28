@@ -61,6 +61,20 @@
   padding-left: 30px;
 }
 
+.Blocoregister {
+  width: 40%;
+  height: 55%;
+  box-shadow:  rgba(231, 228, 228, 0.964);
+  border: 1px solid rgb(255, 208, 0);
+  background-color: #fff;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  padding: 30px;
+  border-radius: 20px;
+  padding-left: 30px;
+}
+
 .contentloginBloco{
   display: flex;
   flex-direction: column;
@@ -124,3 +138,78 @@
   unicode-bidi: isolate;
 }
 
+.navbar{
+  display: flex;
+  justify-content: space-evenly;
+  height: 45px;
+  color:#ffffff;
+  flex-wrap: wrap;
+  background-color: #135c70;
+  padding: 1em;
+  align-items: center;
+}
+
+.navbar a{
+  color: rgb(255, 255, 251);
+}
+
+.navbar a:hover{
+  color: rgb(247, 255, 2);
+}
+
+.profilepg{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.profileif {
+  padding-left: 250px;
+  display: block;
+  overflow:auto;
+  align-items: center;
+}
+
+.foto{
+  display: flex;
+  text-align: right;
+  align-items: center;
+  float:left;
+}
+
+.ftperfil {
+  width: 300px;
+  border-width: 2px;
+  border-style: solid;
+  border-color:rgb(228, 202, 4)
+}
+
+.infosusuario {
+  padding-right: 250px;
+  color: #222;
+  font-size: 40px;
+  text-align: center;
+  padding-left: 30px;
+}
+
+.infosusuariocursogrp {
+  padding-right: 750px;
+  color: #222;
+  font-size: 35px;
+  text-align: center;
+  padding-left: 30px;
+}
+
+.buttonlogin{
+  background-color: rgb(255, 208, 0);
+  border-color: rgb(255, 208, 0);
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  height: 40px;
+  width: 105px;
+}
+
+.ftlogo {
+  object-fit: cover;
+}
