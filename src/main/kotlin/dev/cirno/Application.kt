@@ -1,15 +1,13 @@
 package dev.cirno
 
 import dev.cirno.plugins.*
+import org.jetbrains.exposed.sql.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-
-data class User(val name: String, val age: Int)
-
 
 fun main(args: Array<String>) {
     embeddedServer(
@@ -22,9 +20,16 @@ fun main(args: Array<String>) {
 }
 
 fun Application.module() {
-    configureSecurity()
+    val database = Database.connect(
+            url = "jdbc:h2:file:./build/db;DB_CLOSE_DELAY=-1",
+            user = "root",
+            driver = "org.h2.Driver",
+            password = ""
+        )
+    val logicService = LogicService(database)
+    configureSecurity(logicService)
     configureRouting()
-    configureDatabases()
+    configureDatabases(logicService)
     configureSerialization()
 }
 

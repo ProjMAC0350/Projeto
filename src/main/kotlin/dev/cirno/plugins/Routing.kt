@@ -11,41 +11,12 @@ import kotlinx.serialization.json.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
 
-@Serializable
-data class User(
-    val name: String,
-    val age: Int
-)
-
-@Serializable
-data class Loginreq(
-    val acct: String,
-    val pwd: String
-)
-
-@Serializable
-data class Loginreply(
-    val id: String,
-    val acct: String
-)
-
-
 fun Application.configureRouting() { 
 	
 	routing {
 
         staticResources("/", "mycontent")
 
-        post("/login") {
-            val recv = call.receive<Loginreq>()
-            val reply =  Loginreply("invalid", "invalid")
-
-            if(recv.acct == "meme" && recv.pwd == "123"){
-                call.respond(Loginreply("0", recv.acct))
-            }
-            call.respond(reply)
-        }
-        
 	    get("/hello") {
             call.respondText("Hello World!")
         }
@@ -55,7 +26,7 @@ fun Application.configureRouting() {
         }
 
         get("/meme"){
-            call.respond(User("Johne", 32))
+            call.respond(ExposedUser("Johne", "32", "meme@hotmail.com", "123", "/foto.jpeg", "BCC"))
         }
 
 
