@@ -14,7 +14,7 @@ export const Inicio = () => {
         <div className="ftlogo">
         <img src={logo}></img>
         </div>
-          <Link to="/Inicio" >Inicio</Link>
+          <Link to="/inicio" >Inicio</Link>
           <Link to="/seusgrupos" >Seus Grupos</Link>
           <Link to="/profile" >Perfil</Link>
           <Link to="/" >Sair</Link>

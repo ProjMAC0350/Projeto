@@ -26,21 +26,21 @@ export const Profile = () => {
           <Link to="/" >Sair</Link>
       </nav>
       <div className="profilepg">
-        <div className="profileif">
           <div className="foto">
               <img className="ftperfil" src={'https://via.placeholder.com/250'} alt="a" />
           </div>
           <div className="infosusuario">
-            <p>nome</p>
-            <p>email</p>
-            <button className="buttonlogin" type="button" onMouseOver={Mouseover} onMouseOut={Mouseout}>Alterar email</button>
-            
-            <button className="buttonlogin" type="button" onMouseOver={Mouseover} onMouseOut={Mouseout}>Alterar Senha</button>
+            <p>Nome:</p>
+            <p>Email:</p>
+            <p>Curso:</p>
           </div>
+        <div className="botoesaltera">
+        <button className="buttonlogin" type="button" onMouseOver={Mouseover} onMouseOut={Mouseout}>Alterar foto</button>
+        <button className="buttonlogin" type="button" onMouseOver={Mouseover} onMouseOut={Mouseout}>Alterar email</button>
+        <button className="buttonlogin" type="button" onMouseOver={Mouseover} onMouseOut={Mouseout}>Alterar Senha</button>
         </div>
-        <div className="infosusuariocursogrp">
-        <p>curso</p>
-        <p>Grupos</p>
+        <div className="infosusuario">
+        <p>Grupos:</p>
         </div>
       </div>
     </div>

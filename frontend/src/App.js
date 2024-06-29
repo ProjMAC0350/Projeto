@@ -7,6 +7,7 @@ import { Profile } from './Pages/Profilepage';
 import { Inicio } from './Pages/Iniciopage'
 import { SeusGrupos } from './Pages/Seusgrupospage';
 import useToken from './Pages/useToken';
+import Grupos from './Pages/Grupospage';
 
 function App() { 
  const { token, setToken } = useToken();
@@ -25,6 +26,7 @@ function App() {
           <Route path="/profile" element={<Profile token={token}/>} />
           <Route path="/inicio" element={<Inicio token={token}/>} />
           <Route path="/seusgrupos" element={<SeusGrupos token={token}/>} />
+          <Route path="/grupos" element={<Grupos token={token}/>} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>
       </div>

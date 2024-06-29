@@ -15,7 +15,7 @@ export const SeusGrupos = () => {
         <img src={logo}></img>
         </div>
           <Link to="/Inicio" >Inicio</Link>
-          <Link to="/seusGrupos" >Seus Grupos</Link>
+          <Link to="/seusgrupos" >Seus Grupos</Link>
           <Link to="/profile" >Perfil</Link>
           <Link to="/" >Sair</Link>
       </nav>

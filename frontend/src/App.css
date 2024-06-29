@@ -141,7 +141,7 @@
 .navbar{
   display: flex;
   justify-content: space-evenly;
-  height: 45px;
+  height: 57px;
   color:#ffffff;
   flex-wrap: wrap;
   background-color: #135c70;
@@ -151,6 +151,8 @@
 
 .navbar a{
   color: rgb(255, 255, 251);
+  font-family:'Times New Roman', Times, serif;
+  font-size: 20px;
 }
 
 .navbar a:hover{
@@ -158,9 +160,10 @@
 }
 
 .profilepg{
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
+  display: grid;
+  grid-template-columns: 700px 700px;
+  grid-template-rows: 300px 300px;
+  column-gap: 20px;
 }
 
 .profileif {
@@ -171,10 +174,7 @@
 }
 
 .foto{
-  display: flex;
-  text-align: right;
-  align-items: center;
-  float:left;
+  display: block;
 }
 
 .ftperfil {
@@ -185,19 +185,15 @@
 }
 
 .infosusuario {
-  padding-right: 250px;
-  color: #222;
-  font-size: 40px;
-  text-align: center;
+  color: #565656;
+  font-size: 30px;
+  text-align: left;
   padding-left: 30px;
 }
 
-.infosusuariocursogrp {
-  padding-right: 750px;
-  color: #222;
-  font-size: 35px;
+.botoesaltera {
+  margin-top: 20px;
   text-align: center;
-  padding-left: 30px;
 }
 
 .buttonlogin{
@@ -212,4 +208,42 @@
 
 .ftlogo {
   object-fit: cover;
+}
+
+.gruposgrid{
+  display: grid;
+  grid-template-columns: 700px 3px 700px;
+  grid-template-rows: 700px 700px 700px;
+  column-gap: 20px;
+}
+
+.fotogrp{
+  display:block;
+}
+
+.Descricao{
+  text-align: left;
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  color: #282c34;
+  margin-bottom: 20px;
+  padding-left: 195px;
+}
+
+.Descricaotxt{
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 22px;
+  margin-top: 0px;
+  color: #282c34;
+}
+
+.line {
+  border-left: 2px solid rgb(170, 170, 170);
+  height: 700px;
+}
+
+.feedgrp{
+  display:block;
+  border-color: rgb(255, 208, 0);
 }
