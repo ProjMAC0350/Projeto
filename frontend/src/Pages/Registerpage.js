@@ -34,7 +34,7 @@ export const Register = () => {
     setFormUsuarios.append('password', setFormUsuarios.password);
 
     try{
-      const response = await axios.post('http://localhost:8080/usuarios', usuarios, {
+      const response = await axios.post('http://localhost:8080/users', usuarios, {
       headers: {
         'Content-Type': 'application/json',
       },
