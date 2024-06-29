@@ -10,14 +10,17 @@ async function logando(emailsenha) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(emailsenha)
-  })
-  .then(data => data.json());
-  if (!espera.ok) {
-    alert("Usuário ou senha inválidos");
-    return null;
-  }
-    return espera.json();
- }
+  }).then((response) => {
+    if(!response.ok) throw new Error(response.status);
+	  else return response.json();
+  }).then((data) => {
+	  return data
+  }).catch((error) => {
+    console.log('error: ' + error);
+	  return null;
+  });
+	return espera
+}
 
 export const Login = ( {setToken} ) => {
   function Mouseover(event) {
