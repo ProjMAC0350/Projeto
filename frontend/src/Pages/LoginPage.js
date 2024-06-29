@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
-async function logando(emailsenha) {
-  const { email, password } = emailsenha;
-  const espera = await fetch('http://localhost:8080/login?email=${email}&password=${password}`', {
+async function logando(emailsenha) {  
+  const espera = await fetch('http://localhost:8080/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-  });
+    body: JSON.stringify(emailsenha)
+  })
   if (!espera.ok) {
     alert("Usuário ou senha inválidos");
     return null;
