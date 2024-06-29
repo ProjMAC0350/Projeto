@@ -10,18 +10,18 @@ export async function getUsuario(id) {
           method: 'GET',
           headers: {
               'Content-Type': 'application/json'
-          }
+          },
           body: JSON.stringify(id)
-      }).then((response) => {
-        if(!response.ok) throw new Error(response.status);
-        else return response.json();
-      }).then((data) => {
-        return data
-      }).catch((error) => {
-        console.log('error: ' + error);
-        return null;
-      });
-      return espera
+    }).then((response) => {
+      if(!response.ok) throw new Error(response.status);
+      else return response.json();
+    }).then((data) => {
+      return data
+    }).catch((error) => {
+      console.log('error: ' + error);
+      return null;
+    });
+    return espera
   }
 }
 
@@ -33,6 +33,7 @@ export const Profile = () => {
   function Mouseout(event){
     event.target.style.background="";
   }
+  const token = getToken();
 
   const [usuario, setusuario] = useState(null);
 
@@ -65,12 +66,12 @@ export const Profile = () => {
       </nav>
       <div className="profilepg">
           <div className="foto">
-              <img className="ftperfil" src={'https://via.placeholder.com/250'} alt="a" />
+              <img className="ftperfil" src={usuario.photo} alt="a" />
           </div>
           <div className="infosusuario">
-            <p>Nome: {user.nome}</p>
-            <p>Email: {user.email}</p>
-            <p>Curso: {user.curso}</p>
+            <p>Nome: {usuario.name}</p>
+            <p>Email: {usuario.mail}</p>
+            <p>Curso: {usuario.course}</p>
           </div>
         <div className="botoesaltera">
         <button className="buttonlogin" type="button" onMouseOver={Mouseover} onMouseOut={Mouseout}>Alterar foto</button>

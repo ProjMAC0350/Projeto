@@ -23,10 +23,10 @@ function App() {
         <Routes>  
           <Route path="/" element={<Login setToken={setToken}/>} />
           <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile token={token}/>} />
+          <Route path="/profile/:id?" element={<Profile token={token}/>} />
           <Route path="/inicio" element={<Inicio token={token}/>} />
           <Route path="/seusgrupos" element={<SeusGrupos token={token}/>} />
-          <Route path="/grupos" element={<Grupos token={token}/>} />
+          <Route path="/grupos/:id?" element={<Grupos token={token}/>} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>
       </div>
