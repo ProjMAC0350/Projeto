@@ -50,10 +50,12 @@ export const Login = ( {setToken} ) => {
       <div className="loginpage">
         <div className="Blocologin">
           <div className="contentloginBloco">
+            <form onSubmit={handleSubmit}>
             <input type="Username" placeholder="Email USP" onChange={(event) => setUsername(event.target.value)} onSubmit={handleSubmit}/>
             <input type="Password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} onSubmit={handleSubmit}/>
-            <Link to=""><button className="buttonlogin" type="button" onMouseOver={Mouseover} onMouseOut={Mouseout}>Entrar</button></Link>
+            <Link to=""><button className="buttonlogin" type="submit" onMouseOver={Mouseover} onMouseOut={Mouseout}>Entrar</button></Link>
             <Link to="/register" ><button className="buttonlogin2">Registre-se</button></Link>
+            </form>
           </div>
         </div>
       </div>
