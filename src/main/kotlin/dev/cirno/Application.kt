@@ -3,11 +3,13 @@ package dev.cirno
 import dev.cirno.plugins.*
 import org.jetbrains.exposed.sql.*
 import io.ktor.server.application.*
+import io.ktor.server.plugins.cors.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import io.ktor.http.*
 
 fun main(args: Array<String>) {
     embeddedServer(
@@ -20,6 +22,14 @@ fun main(args: Array<String>) {
 }
 
 fun Application.module() {
+    install(CORS){
+        allowMethod(HttpMethod.Options)
+        allowMethod(HttpMethod.Post)
+        allowMethod(HttpMethod.Get)
+        allowHeader(HttpHeaders.AccessControlAllowOrigin)
+        allowHeader(HttpHeaders.ContentType)
+        anyHost()
+    }
     val database = Database.connect(
             url = "jdbc:h2:file:./build/db;DB_CLOSE_DELAY=-1",
             user = "root",
