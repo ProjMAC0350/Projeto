@@ -1,27 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from './usp-2018.png'
 import { useParams } from 'react-router-dom';
+import { getToken } from './useToken'
 
 
 export async function getUsuario(id) {
   try {
-      const espera = await fetch(`http://localhost:8080/users/id?id=${id}`, {
+      const response = await fetch(`http://localhost:8080/users/id?id=${id}`, {
           method: 'GET',
           headers: {
               'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(id)
-    }).then((response) => {
-      if(!response.ok) throw new Error(response.status);
-      else return response.json();
-    }).then((data) => {
-      return data
-    }).catch((error) => {
-      console.log('error: ' + error);
+          }
+      });
+      if (!response.ok) {
+          if (response.status === 404) {
+              console.error('User not found!');
+          } 
+          return null;
+      }
+      return await response.json();
+  } 
+  catch (error) {
       return null;
-    });
-    return espera
   }
 }
 

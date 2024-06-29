@@ -1,27 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from './usp-2018.png'
+import { getToken } from './useToken'
 
-async function getGrp(){
-  try{
-      const response = await fetch(`http://localhost:8080/groups`, {
+export async function getGrp() {
+  try {
+      const response = await fetch(`http://localhost:8080/users/groups`, {
           method: 'GET',
           headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify()
-        }).then((response) => {
-          if(!response.ok) throw new Error(response.status);
-          else return response.json();
-        }).then((data) => {
-          return data
-        }).catch((error) => {
-          console.log('error: ' + error);
+              'Content-Type': 'application/json'
+          }
+      });
+      if (!response.ok) {
+          if (response.status === 404) {
+              console.error('Groups error!');
+          } 
           return null;
-        });
-        return espera
-    }
+      }
+      return await response.json();
+  } 
+  catch (error) {
+      return null;
   }
+}
 
 
 export const Inicio = () => {
