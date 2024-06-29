@@ -6,10 +6,12 @@ import io.ktor.server.application.*
 import io.ktor.server.plugins.cors.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
-import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.http.*
+import kotlinx.coroutines.*
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
 
 fun main(args: Array<String>) {
     embeddedServer(
@@ -30,6 +32,12 @@ fun Application.module() {
         allowHeader(HttpHeaders.ContentType)
         anyHost()
     }
+    install(ContentNegotiation) {
+        json(Json {
+            namingStrategy = JsonNamingStrategy.SnakeCase
+        })
+    }
+
     val database = Database.connect(
             url = "jdbc:h2:file:./build/db;DB_CLOSE_DELAY=-1",
             user = "root",
@@ -38,8 +46,6 @@ fun Application.module() {
         )
     val logicService = LogicService(database)
     configureSecurity(logicService)
-    configureRouting()
     configureDatabases(logicService)
-    configureSerialization()
 }
 
