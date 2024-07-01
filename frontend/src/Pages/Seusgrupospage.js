@@ -32,8 +32,8 @@ export const SeusGrupos = () => {
   const [isLoading, setLoading] =useState(false);
 
   useEffect(() => {
-    setLoading(true);
     const fetchGrpsown = async () => {
+      setLoading(true);
       const infogrpsown= await getGrpown(token);
       setgruposown(infogrpsown);
       setLoading(false);
@@ -59,7 +59,7 @@ export const SeusGrupos = () => {
         </div>
           <Link to="/inicio" >Inicio</Link>
           <Link to="/seusgrupos" >Seus Grupos</Link>
-          <Link to={'/profile/${tokenid}'} >Perfil</Link>
+          <Link to={`/profile/${tokenid}`} >Perfil</Link>
           <Link to="/" >Sair</Link>
       </nav>
       <div className="grpsdiv">
@@ -67,7 +67,7 @@ export const SeusGrupos = () => {
           <img className="ftperfil" src={gruposown.photo} alt="a" />
           <p className="guponame">{gruposown.name}</p>
           <p className="grupodescricao">{gruposown.description}</p>
-          <Link to={'/grupos/${gruposown.id}'} ><button className="buttongrp">Acesse</button></Link>
+          <Link to={`/grupos/${gruposown.id}`} ><button className="buttongrp">Acesse</button></Link>
         </div>
       </div>
     </div>

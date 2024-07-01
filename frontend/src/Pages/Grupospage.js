@@ -35,8 +35,8 @@ export const Grupos = () => {
   const { idgrp } = useParams();
 
   useEffect(() => {
-    setLoading(true);
     const fetchGrpr = async () => {
+      setLoading(true);
       const infogrp = await getGrp(idgrp);
       setgrp(infogrp);
       setLoading(false);
@@ -62,7 +62,7 @@ export const Grupos = () => {
         </div>
           <Link to="/Inicio" >Inicio</Link>
           <Link to="/seusgrupos" >Seus Grupos</Link>
-          <Link to={'/profile/${tokenid}'} >Perfil</Link>
+          <Link to={`/profile/${tokenid}`} >Perfil</Link>
           <Link to="/" >Sair</Link>
       </nav>
       <div className="gruposgrid">
