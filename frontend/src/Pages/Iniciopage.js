@@ -26,17 +26,25 @@ export async function getGrp() {
 
 
 export const Inicio = () => {
-  const token = getToken();
+  const tokenid=getToken();
 
-  const [grupos, setgrupos] = useState(null);
+  const [grupos, setgrupos] = useState([]);
+  const [isLoading, setLoading] =useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const fetchGrps = async () => {
       const infogrps= await getGrp();
       setgrupos(infogrps);
+      setLoading(false);
     };
     fetchGrps();
     },);
+
+
+    if(isLoading){
+      return <div>Loading...</div>
+    }
 
   return ( 
     <div>
@@ -51,9 +59,17 @@ export const Inicio = () => {
         </div>
           <Link to="/inicio" >Inicio</Link>
           <Link to="/seusgrupos" >Seus Grupos</Link>
-          <Link to="/profile" >Perfil</Link>
+          <Link to={'/profile/${tokenid}'} >Perfil</Link>
           <Link to="/" >Sair</Link>
       </nav>
+      <div className="grpsdiv">
+        <div className="grps">
+          <img className="ftperfil" src={grupos.photo} alt="a" />
+          <p className="guponame">{grupos.name}</p>
+          <p className="grupodescricao">{grupos.description}</p>
+          <Link to={'/grupos/${grupos.id}'} ><button className="buttongrp">Acesse</button></Link>
+        </div>
+      </div>
     </div>
   );
 };

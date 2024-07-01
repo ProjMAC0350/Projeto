@@ -34,20 +34,26 @@ export const Profile = () => {
   function Mouseout(event){
     event.target.style.background="";
   }
-  const token = getToken();
+  const tokenid = getToken();
 
   const [usuario, setusuario] = useState(null);
+  const [isLoading, setLoading] =useState(false);
 
   const { id } = useParams();
-  const idcerto = id.userId === 'string' ? parseInt(id.userId, 10) : id.userId;
 
   useEffect(() => {
+    setLoading(true);
     const fetchUser = async () => {
-      const infousuario = await getUsuario(idcerto);
+      const infousuario = await getUsuario(id);
       setusuario(infousuario);
+      setLoading(false);
     };
     fetchUser();
     }, [id]);
+
+    if(isLoading){
+      return <div>Loading...</div>
+    }
 
   return ( 
     <div>
@@ -58,11 +64,11 @@ export const Profile = () => {
       </div>
       <nav className="navbar">
       <div className="ftlogo">
-        <img src={logo}></img>
+        <img src={logo} alt="a"></img>
         </div>
           <Link to="/Inicio" >Inicio</Link>
           <Link to="/seusgrupos" >Seus Grupos</Link>
-          <Link to="/profile" >Perfil</Link>
+          <Link to={'/profile/${tokenid}'} >Perfil</Link>
           <Link to="/" >Sair</Link>
       </nav>
       <div className="profilepg">
