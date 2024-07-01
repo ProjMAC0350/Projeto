@@ -59,7 +59,7 @@ export const SeusGrupos = () => {
         </div>
           <Link to="/inicio" >Inicio</Link>
           <Link to="/seusgrupos" >Seus Grupos</Link>
-          <Link to={`/profile/${tokenid}`} >Perfil</Link>
+          <Link to={`/profile/${token}`} >Perfil</Link>
           <Link to="/" >Sair</Link>
       </nav>
       <div className="grpsdiv">
