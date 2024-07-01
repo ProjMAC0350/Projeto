@@ -47,15 +47,18 @@ fun Application.configureSecurity(logicService: LogicService) {
     routing {
         post("/login") {
             val user = call.receive<LoginPair>()
-            if(logicService.tryUserLogin(user) != 0)
-                call.respond("") // login falhou!
+            var a: Int? = logicService.tryUserLogin(user) 
+            if(a != null)
+                call.respond(HttpStatusCode.OK, a)
+            call.respond("") // login falhou!
             val token = JWT.create()
                 .withAudience(audience)
                 .withIssuer(issuer)
                 .withClaim("email", user.email)
                 .withExpiresAt(Date(System.currentTimeMillis() + 60000))
                 .sign(Algorithm.HMAC256(secret))
-            call.respond(hashMapOf("token" to token))
+            //call.respond(HttpStatusCode.OK, hashMapOf("token" to token))
+            
         }
 
         authenticate("auth-jwt") {

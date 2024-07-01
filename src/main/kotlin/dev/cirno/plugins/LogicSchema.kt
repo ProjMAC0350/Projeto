@@ -115,8 +115,12 @@ class LogicService(private val database: Database) {
         }
     }
 
-    suspend fun tryUserLogin(usr: LoginPair): Int {
-        return 0
+    suspend fun tryUserLogin(usr: LoginPair): Int? {
+        return transaction(database) {
+                Users.select { (Users.mail eq usr.email) and (Users.pwd eq usr.password) }
+                .map{it[Users.id]}
+                .singleOrNull()
+        }
     }
 
 
@@ -136,22 +140,12 @@ class LogicService(private val database: Database) {
         }
     }
 
-    suspend fun create(grp: ExternalGroup): Int {
-        var a = 0;
-        transaction { 
-            a = Groups.insert {
-                it[name] = grp.name
-                it[description] = grp.description
-                it[owner] = grp.owner
-            }[Groups.id]
-            print(Groups.id)
-            isAdmin.insert {
-                it[g_id] = Groups.id
-                it[u_id] = grp.owner
-            }
-        }
-
-        return a
+    suspend fun create(grp: ExternalGroup): Int  = dbQuery {
+        Groups.insert {
+            it[name] = grp.name
+            it[description] = grp.description
+            it[owner] = grp.owner
+        }[Groups.id]
     }
 
     suspend fun readGroup(id: Int): InternalGroup? {
