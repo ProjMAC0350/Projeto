@@ -7,22 +7,22 @@ import { getToken } from './useToken'
 
 export async function getUsuario(id) {
   try {
-      const response = await fetch(`http://localhost:8080/users/id?id=${id}`, {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      });
-      if (!response.ok) {
-          if (response.status === 404) {
-              console.error('User not found!');
-          } 
-          return null;
+    const response = await fetch(`http://localhost:8080/users/id?id=${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
       }
-      return await response.json();
-  } 
-  catch (error) {
+    });
+    if (!response.ok) {
+      if (response.status === 404) {
+        console.error('User not found!');
+      }
       return null;
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    return null;
   }
 }
 
@@ -37,13 +37,13 @@ export const Profile = () => {
   const tokenid = getToken();
 
   const [usuario, setusuario] = useState(null);
-  const [isLoading, setLoading] =useState(false);
+  const [isLoading, setLoading] =useState(true);
 
   const { id } = useParams();
 
   useEffect(() => {
-    setLoading(true);
     const fetchUser = async () => {
+      setLoading(true);
       const infousuario = await getUsuario(id);
       setusuario(infousuario);
       setLoading(false);
@@ -68,7 +68,7 @@ export const Profile = () => {
         </div>
           <Link to="/Inicio" >Inicio</Link>
           <Link to="/seusgrupos" >Seus Grupos</Link>
-          <Link to={'/profile/${tokenid}'} >Perfil</Link>
+          <Link to={`/profile/${tokenid}`} >Perfil</Link>
           <Link to="/" >Sair</Link>
       </nav>
       <div className="profilepg">
