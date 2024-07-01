@@ -85,8 +85,8 @@ export const Register = () => {
             <input type='text' placeholder='Foto de Perfil' name='fotodeperfil' onChange={handleChange}/>
             <input type="text" placeholder="Digite o seu Email" name='email' onChange={handleChange}/>
             <input type="Password" placeholder="Digite senha desejada" name='password' onChange={handleChange}/>
-            </form>
             <Link to="/"><button className="buttonlogin" type="submit" onMouseOver={Mouseover} onMouseOut={Mouseout}>Registrar</button></Link>
+            </form>
           </div>
         </div>
       </div>
