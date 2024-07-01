@@ -5,12 +5,12 @@ import axios from 'axios';
 
 export const Register = () => {
   const [usuarios, setFormUsuarios] = useState({
-    nome: '',
-    numerousp: '',
-    curso: '',
-    fotodeperfil: '',
+    name: '',
+    nusp: '',
     email: '',
-    password: '',
+    pwd: '',
+    photo: '',
+    course: '',
   });
 
   const handleChange = (event) => {
@@ -26,12 +26,12 @@ export const Register = () => {
   const handleSubmit = async (event) => {
     event.preventDefault(); 
 
-    setFormUsuarios.append('nome', setFormUsuarios.nome);
-    setFormUsuarios.append('numerousp', setFormUsuarios.numerousp);
-    setFormUsuarios.append('curso', setFormUsuarios.curso);
-    setFormUsuarios.append('fotodeperfil', setFormUsuarios.fotodeperfil);
+    setFormUsuarios.append('name', setFormUsuarios.name);
+    setFormUsuarios.append('nusp', setFormUsuarios.nusp);
     setFormUsuarios.append('email', setFormUsuarios.email);
-    setFormUsuarios.append('password', setFormUsuarios.password);
+    setFormUsuarios.append('pwd', setFormUsuarios.pwd);
+    setFormUsuarios.append('photo', setFormUsuarios.photo);
+    setFormUsuarios.append('course', setFormUsuarios.course);
 
     try{
       const response = await axios.post('http://localhost:8080/users', usuarios, {
@@ -79,12 +79,12 @@ export const Register = () => {
         <div className="Blocoregister">
           <div className="contentloginBloco">
             <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Nome" name='nome' onChange={handleChange}/>
-            <input type="number" placeholder="Número Usp" name='numerousp' onChange={handleChange}/>
-            <input type="text" placeholder="Curso" name='curso' onChange={handleChange}/>
-            <input type='text' placeholder='Foto de Perfil' name='fotodeperfil' onChange={handleChange}/>
-            <input type="text" placeholder="Digite o seu Email" name='email' onChange={handleChange}/>
-            <input type="Password" placeholder="Digite senha desejada" name='password' onChange={handleChange}/>
+            <input type="text" placeholder="Nome" name='name' onChange={handleChange}/>
+            <input type="number" placeholder="Número Usp" name='nusp' onChange={handleChange}/>
+            <input type="text" placeholder="Email" name='email' onChange={handleChange}/>
+            <input type='Password' placeholder='Senha' name='pwd' onChange={handleChange}/>
+            <input type="text" placeholder="Link da foto" name='photo' onChange={handleChange}/>
+            <input type="Text" placeholder="Curso" name='course' onChange={handleChange}/>
             <Link to="/"><button className="buttonlogin" type="submit" onMouseOver={Mouseover} onMouseOut={Mouseout}>Registrar</button></Link>
             </form>
           </div>
