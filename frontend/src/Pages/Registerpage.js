@@ -52,7 +52,7 @@ export const Register = () => {
     try {
       const response = await axios.post('http://localhost:8080/users', dados, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/json',
         },
       });
 
