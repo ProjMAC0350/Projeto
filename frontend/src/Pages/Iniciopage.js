@@ -5,7 +5,7 @@ import { getToken } from './useToken';
 
 export async function getGrp() {
   try {
-    const response = await fetch(`http://localhost:8080/users/groups`, {
+    const response = await fetch(`http://localhost:8080/groups`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
