@@ -1,11 +1,12 @@
-###Plataforma para Grupos de Extensão do IME-USP
+#Plataforma para Grupos de Extensão do IME-USP
+
 ## Descrição:
 Platforma para organizar e auxiliar os grupos de extensão do IME-USP, aproximando alunos e docentes e facilitando a troca de informações sobre os grupos.
 
 ##Funcionalidades:
-Todos os grupos de extensão do IME-USP com uma descrição
-Feed com informações de cada grupo
-Perfil (possivelmente interativo)
+Todos os grupos de extensão do IME-USP com uma descrição.
+Feed com informações de cada grupo.
+Perfil (possivelmente interativo).
 
 ##Tecnologias:
 Kotlin
