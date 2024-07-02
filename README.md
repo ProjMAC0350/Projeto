@@ -1,3 +1,4 @@
+###Plataforma para Grupos de Extensão do IME-USP
 ## Descrição:
 Platforma para organizar e auxiliar os grupos de extensão do IME-USP, aproximando alunos e docentes e facilitando a troca de informações sobre os grupos.
 
