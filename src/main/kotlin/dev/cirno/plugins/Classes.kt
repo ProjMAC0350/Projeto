@@ -5,7 +5,7 @@ import kotlinx.coroutines.Dispatchers
 
 @Serializable
 data class LoginPair(
-    val email: String,
+    val mail: String,
     val password: String
 )
 

@@ -5,7 +5,7 @@ import axios from 'axios';
 export const Register = () => {
   const [name, setName] = useState('');
   const [nusp, setNusp] = useState('');
-  const [email, setEmail] = useState('');
+  const [mail, setEmail] = useState('');
   const [pwd, setPwd] = useState('');
   const [photo, setPhoto] = useState('');
   const [course, setCourse] = useState('');
@@ -21,7 +21,7 @@ export const Register = () => {
       case 'nusp':
         setNusp(value);
         break;
-      case 'email':
+      case 'mail':
         setEmail(value);
         break;
       case 'pwd':
@@ -44,7 +44,7 @@ export const Register = () => {
     const dados = new FormData();
     dados.append('name', name);
     dados.append('nusp', nusp);
-    dados.append('email', email);
+    dados.append('mail', mail);
     dados.append('pwd', pwd);
     dados.append('photo', photo);
     dados.append('course', course);
@@ -95,7 +95,7 @@ export const Register = () => {
             <form onSubmit={handleSubmit}>
               <input type="text" placeholder="Nome" name='name' value={name} onChange={handleChange} />
               <input type="number" placeholder="Número Usp" name='nusp' value={nusp} onChange={handleChange} />
-              <input type="text" placeholder="Email" name='email' value={email} onChange={handleChange} />
+              <input type="text" placeholder="Email" name='mail' value={mail} onChange={handleChange} />
               <input type='password' placeholder='Senha' name='pwd' value={pwd} onChange={handleChange} />
               <input type="text" placeholder="Link da foto" name='photo' value={photo} onChange={handleChange} />
               <input type="text" placeholder="Curso" name='course' value={course} onChange={handleChange} />

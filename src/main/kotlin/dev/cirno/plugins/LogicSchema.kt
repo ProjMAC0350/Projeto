@@ -117,7 +117,7 @@ class LogicService(private val database: Database) {
 
     suspend fun tryUserLogin(usr: LoginPair): Int? {
         return transaction(database) {
-                Users.select { (Users.mail eq usr.email) and (Users.pwd eq usr.password) }
+                Users.select { (Users.mail eq usr.mail) and (Users.pwd eq usr.password) }
                 .map{it[Users.id]}
                 .singleOrNull()
         }

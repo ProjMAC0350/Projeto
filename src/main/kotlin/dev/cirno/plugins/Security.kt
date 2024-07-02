@@ -54,7 +54,7 @@ fun Application.configureSecurity(logicService: LogicService) {
             val token = JWT.create()
                 .withAudience(audience)
                 .withIssuer(issuer)
-                .withClaim("email", user.email)
+                .withClaim("mail", user.mail)
                 .withExpiresAt(Date(System.currentTimeMillis() + 60000))
                 .sign(Algorithm.HMAC256(secret))
             //call.respond(HttpStatusCode.OK, hashMapOf("token" to token))

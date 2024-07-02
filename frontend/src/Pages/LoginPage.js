@@ -30,14 +30,14 @@ export const Login = ( {setToken} ) => {
     event.target.style.background="";
   }
 
-  const[email, setUsername] = useState("");
+  const[mail, setUsername] = useState("");
   const[password, setPassword] = useState("");
 
   const mudarpag = useNavigate();
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const tokenData = await logando({ email, password });
+    const tokenData = await logando({ mail, password });
     if(tokenData){
         setToken(tokenData);
         mudarpag('/inicio');
