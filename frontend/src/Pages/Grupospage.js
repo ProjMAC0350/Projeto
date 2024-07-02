@@ -70,6 +70,7 @@ export const Grupos = () => {
                 <img className="ftperfil" src={grupoid.photo} alt="a" />
                 <p className="Namegrp">{grupoid.name}:</p>
               <p className="Namegrpdescricao">{grupoid.description}</p>
+              <button className="buttonlogin">Participar</button>
         </div>
         <div className="line"></div>
         <div className="feedgrp">
